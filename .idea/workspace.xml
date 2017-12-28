@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94032d40-651b-41bc-9a36-00713c7dc138" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PuzzleAssembly.iml" afterPath="$PROJECT_DIR$/PuzzleAssembly.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,14 +20,19 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="405">
+              <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
-                <element signature="e#1301#1302#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
+                <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="e#3017#3018#0" expanded="true" />
+                <element signature="e#3098#3099#0" expanded="true" />
+                <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -39,9 +41,10 @@
       <file leaf-file-name="PuzzleAssemblyTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="105">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#182#183#0" expanded="true" />
                 <element signature="e#232#233#0" expanded="true" />
               </folding>
@@ -216,16 +219,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514483000349</updated>
-      <workItem from="1514483001603" duration="3066000" />
+      <workItem from="1514483001603" duration="7820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3066000" />
+    <option name="totallyTimeSpent" value="7820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="43" width="1375" height="837" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -279,9 +281,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#182#183#0" expanded="true" />
             <element signature="e#232#233#0" expanded="true" />
           </folding>
@@ -290,14 +293,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="405">
+          <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#3017#3018#0" expanded="true" />
+            <element signature="e#3098#3099#0" expanded="true" />
+            <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
         </state>
       </provider>
