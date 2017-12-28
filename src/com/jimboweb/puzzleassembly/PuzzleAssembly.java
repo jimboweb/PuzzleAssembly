@@ -18,7 +18,8 @@ public class PuzzleAssembly {
     private static class PuzzleThread implements Runnable{
         @Override
         public void run() {
-            AssemblePuzzle();
+            PuzzleAssembly pa = new PuzzleAssembly();
+            pa.AssemblePuzzle();
         }
     }
 
@@ -29,15 +30,26 @@ public class PuzzleAssembly {
     }
 
     private void AssemblePuzzle(){
-        List<String> inputs = new ArrayList<>();
-        for(int i=0;i<25;i++){
-            inputs.add(scanner.next());
-
-        }
+        List<String> inputs = (ArrayList<String>)input();
+        
     }
 
-    private void input(){
 
+    /**
+     * inputs 25 strings
+     * @return an arrayList of 25 strings
+     */
+    private List<String> input(){
+        List<String> inputs = new ArrayList<>();
+        try {
+            for (int i = 0; i < 25; i++) {
+                inputs.add(scanner.next());
+
+            }
+        }catch(IOException e) {
+            System.out.println(e);
+        }
+        return inputs;
     }
 
     class FastScanner {
