@@ -26,6 +26,12 @@ public class PuzzleAssembly {
 
     }
 
+    /**
+     * creates the Square objects
+     * @param colorToInt a map matching each color to an integer
+     * @param brokenUpInputs list of list of colors
+     * @return List of square objects
+     */
     private ArrayList<Square> makeSquareList(Map<String,Integer> colorToInt,List<List<String>> brokenUpInputs){
         List<Square> squares = new ArrayList<>();
         for(List<String> colors:brokenUpInputs){
@@ -35,6 +41,12 @@ public class PuzzleAssembly {
     }
 
 
+    /**
+     * just breaks up inputs of four colors by commas and gets rid of parens
+     * @param inputs "(red,green,blue,yellow), (...)..."
+     * @return {{red, green, blue, yellow},{...}...}
+     * @throws IllegalArgumentException it's for a square so each line should have four colors
+     */
     private ArrayList<List<String>> breakupInputs(List<String> inputs) throws IllegalArgumentException {
         ArrayList<List<String>> rtrn = new ArrayList<>();
         for(String input:inputs){
@@ -49,6 +61,11 @@ public class PuzzleAssembly {
         return rtrn;
     }
 
+    /**
+     * creates a color-integer map for the colors
+     * @param brokenUpInputs will be in form "red","green" etc.
+     * @return {"red",1...}
+     */
     private Map<String,Integer> makeColorToIntMap(List<List<String>> brokenUpInputs){
         Map<String,Integer> rtrn = new HashMap<>();
         rtrn.put("black",0);
@@ -63,106 +80,212 @@ public class PuzzleAssembly {
         return rtrn;
     }
 
-    interface Graph{
-        List<Edge> edges = new ArrayList<>();
-        List<Node> nodes = new ArrayList<>();
-        void addNode();
-        Node getNode(int i);
-        void addEdge();
-        Edge getEdge(int i);
-        List<Node> getNodes();
-        List<Edge> getEdges();
+    class DeBruinSquareGraph extends DeBruijnGraph<DeBruijnSquareEdge,DeBruijnSquareNode>{
+        public DeBruinSquareGraph(List<Square> squares) {
+            // TODO: 12/30/17 create a square graph from list of squares
+        }
+    }
+
+    class DeBruijnSquareNode extends DeBruijnGraphNode<DeBruijnSquareEdge>{
+        int squareRef;
+        public DeBruijnSquareNode(int index){
+            super(index);
+            this.squareRef=index;
+        }
+
+        public int getSquareRef() {
+            return squareRef;
+        }
+    }
+
+    class DeBruijnSquareEdge extends DeBruijnGraphEdge<DeBruijnSquareNode>{
+        int squareRef;
+        public DeBruijnSquareEdge(DeBruijnSquareNode firsteNode, DeBruijnSquareNode secondNode, int i){
+            super(firsteNode,secondNode,i);
+            this.squareRef=i;
+        }
+
+        public int getSquareRef() {
+            return squareRef;
+        }
+    }
+
+
+    /**
+     * Generic graph
+     * @param <E> some kind of Edge interface
+     * @param <N> some kind of Node interface
+     */
+    interface Graph<E extends Edge, N extends Node>{
+        public void addNode(N n);
+        public N getNode(int i);
+        public void addEdge(E edge);
+        public E getEdge(int i);
+        public List<? extends N> getNodes();
+        public List<? extends E> getEdges();
 
     }
 
-    interface Edge{
-        Node[] nodes = new Node[2];
-        Node[] getNodes();
-        Node getNode(int i);
+
+    // interfaces and abstract objects related to the graph
+    /**
+     * Generic directed edge
+     * @param <N> some kind of node interface
+     */
+    interface Edge<N extends Node>{
+        public N getNode(int i);
+        public List<? extends N> getNodes();
+        public int getIndex();
     }
 
-    interface Node{
-        List<Edge> edges = new ArrayList<>();
-        void addEdge();
-        List<Edge> getEdges();
-        Edge getEdge(int i);
+    /**
+     * Generic Node with directed edge
+     *
+     * @param <E> some kind of Edge interface
+     */
+    interface Node<E extends Edge>{
+        public void addEdge(E e, boolean start);
+        public List<? extends Edge> getEdges();
+        public E getEdge(int i);
+        public int getIndex();
+        public boolean getStartOrEnd(Edge e);
     }
 
-    abstract class DeBruijnGraph implements Graph{
-        private List<DeBruijnGraphEdge> edges;
-        private List<DeBruijnGraphNode> nodes;
+    /**
+     * a DeBruijn implemntation of the Graph interface
+     * allows nodes to be glued together
+     */
+    abstract class DeBruijnGraph<E extends DeBruijnGraphEdge, N extends DeBruijnGraphNode> implements Graph<E,N>{
+        private List<E> edges;
+        private List<N> nodes;
         public DeBruijnGraph(){
             edges = new ArrayList<>();
             nodes = new ArrayList<>();
         }
-        public void addNode(DeBruijnGraphNode n){
+        public void addNode(N n){
             nodes.add(n);
         }
-        public void addEdge(DeBruijnGraphEdge e){
+        public void addEdge(E e){
             edges.add(e);
         }
 
-        //List<Edge> not same as List<DeBruinGraphEdge> there must be a way to deal with this
-//        public List<DeBruijnGraphEdge> getEdges() {
-//            return edges;
-//        }
-//
-//        public List<DeBruijnGraphNode> getNodes() {
-//            return nodes;
-//        }
-        public DeBruijnGraphEdge getEdge(int i){
+        public List<? extends E> getEdges() {
+            return edges;
+        }
+
+        public List<? extends N> getNodes() {
+            return nodes;
+        }
+        public E getEdge(int i){
             if(i>edges.size()){
                 throw new IllegalArgumentException("requested index " + i + "but edges has length " + edges.size());
             }
             return edges.get(i);
         }
-        public DeBruijnGraphNode getNode(int i){
+        public N getNode(int i){
             if(i>nodes.size()){
                 throw new IllegalArgumentException("requested index " + i + "but edges has length " + nodes.size());
             }
             return nodes.get(i);
         }
-        void glueNodes(List<Node> nodes){
-            //TODO: method to glue nodes together
+        void glueNodes(List<N> nodesToGlue){
+            N firstNode = nodesToGlue.get(0);
+            for(N node:nodesToGlue){
+                node.glueToNode(firstNode);
+                if(!node.equals(firstNode)) {
+                    nodes.remove(node);
+                }
+            }
+
         }
     }
 
-    abstract class DeBruijnGraphNode implements Node{
-        private List<DeBruijnGraphEdge> edges = new ArrayList<>();
-        public void addEdge(DeBruijnGraphEdge e){
+    /**
+     * A DeBruijn implementation of the node interface
+     * Node can be glued to other nodes
+     */
+    abstract class DeBruijnGraphNode<E extends DeBruijnGraphEdge> implements Node<E>{
+        private List<E> edges = new ArrayList<>();
+        private HashMap<Integer,Boolean> startOrEnd = new HashMap<>();
+        int index;
+        private void addEdge(E e){
             edges.add(e);
+
         }
-        public DeBruijnGraphEdge getEdge(int ind){
+
+        public void addEdge(E e, boolean start){
+            addEdge(e);
+            startOrEnd.put(e.index,start);
+
+        }
+
+        public  DeBruijnGraphNode(int index){
+            this.index=index;
+        }
+        public E getEdge(int ind){
             return edges.get(ind);
         }
 
-//        public List<DeBruijnGraphEdge> getEdges() {
-//            return edges;
-//        }
+        public List<? extends E> getEdges() {
+            return edges;
+        }
 
-        public void glueToNode(Node n){
-            //TODO: method to glue to node n
+        public int getIndex(){
+            return index;
+        }
+
+        public void glueToNode(DeBruijnGraphNode n){
+            if(this.equals(n))
+                return;
+            for(E edge:edges){
+                edge.glueNodeToNode(n, startOrEnd.get(edge.getIndex()));
+            }
+        }
+
+        public boolean getStartOrEnd(Edge e){
+            return startOrEnd.get(e.getIndex());
         }
     }
 
-    abstract class DeBruijnGraphEdge implements Edge{
-        private DeBruijnGraphNode[] nodes = new DeBruijnGraphNode[2];
-        public DeBruijnGraphEdge(DeBruijnGraphNode firstNode, DeBruijnGraphNode secondNode){
-            nodes[0] = firstNode;
-            nodes[1] = secondNode;
+    /**
+     * A DeBruijn implementation of the Edge interface.
+     * Allows nodes to be glued together.
+     */
+    abstract class DeBruijnGraphEdge<N extends DeBruijnGraphNode> implements Edge<N>{
+        private N starttNode;
+        private N endNode;
+        int index;
+        public DeBruijnGraphEdge(N firstNode, N secondNode, int index){
+            this.starttNode=firstNode;
+            this.endNode = secondNode;
+            this.index=index;
         }
 
-        public DeBruijnGraphNode[] getNodes() {
+
+        public List<N> getNodes() {
+            List<N> nodes = new ArrayList<>();
+            nodes.add(starttNode);
+            nodes.add((endNode));
             return nodes;
         }
-        public DeBruijnGraphNode getNode(int i){
-            if(i>1){
-                throw new IllegalArgumentException("node index can only be 0 or 1");
+        public N getNode(int i){
+            switch (i){
+                case 0: return starttNode;
+                case 1: return endNode;
+                default: throw new IllegalArgumentException("node index can only be 0 or 1");
+
             }
-            return nodes[i];
+
         }
-        public void glueNodeToNode(int i){
-            //TODO: connect to glued node
+        public void glueNodeToNode(N n, boolean start){
+            if(start){
+                starttNode = n;
+            } else {
+                endNode = n;
+            }
+        }
+        public int getIndex(){
+            return index;
         }
     }
 
