@@ -81,33 +81,125 @@ public class PuzzleAssembly {
     }
 
     class DeBruinSquareGraph extends DeBruijnGraph<DeBruijnSquareEdge,DeBruijnSquareNode>{
+        int nodeCount = 0;
+        int edgeCount = 0;
         public DeBruinSquareGraph(List<Square> squares) {
-            // TODO: 12/30/17 create a square graph from list of squares
+            makeNodesAndEdges(squares);
+        }
+
+        private void makeNodesAndEdges(List<Square> squares){
+            int nodeCount = 0;
+            // TODO: 12/30/17 make these into separate methods
+            for(Square square:squares){
+                for (Square othersquare:squares) {
+                    List<DeBruijnSquareNode> newNodes = new ArrayList<>();
+                    for(int s:othersquare.sides){
+                        DeBruijnSquareNode newNode = addNodeToMatchingSides(square,othersquare,s);
+                        if(newNode!=null) {
+                            newNodes.add(newNode);
+                            nodeCount++;
+                            square.addAssociatedNode(newNode,3 - s);
+                            othersquare.addAssociatedNode(newNode, s);
+                        }
+                    }
+                    if(!newNodes.isEmpty()){
+                        nodes.addAll(newNodes);
+                    }
+
+                }
+                for(Map.Entry<DeBruijnSquareNode,Integer> entry:square.associatedNodes.entrySet()){
+                    for(Map.Entry<DeBruijnSquareNode,Integer> otherEntry:square.associatedNodes.entrySet()){
+                        if(entry.getValue()+otherEntry.getValue()==3){
+                            boolean vertical = (entry.getValue()&1)!=1;
+                            DeBruijnSquareEdge newEdge = new DeBruijnSquareEdge(entry.getKey(),
+                                    otherEntry.getKey(),
+                                    edgeCount,
+                                    vertical);
+                            addEdge(newEdge);
+                            square.addAssociatedEdges(newEdge);
+                            edgeCount++;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        /**
+         * <p>this will add a node if:</p>
+         * <ol>
+         *     <li>top matches bottom and horizontal position is the same</li>
+         *     <li>left matches right and vertical position is the same</li>
+         * </ol>
+         * @param firstSquare the first square
+         * @param secondSquare the second square
+         * @param secondSquareSide the side the second square is trying to match
+         */
+        private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
+            //I know I could do this with one huge conditional but it would just be confusing and
+            //it will all compile to the same thing anyway
+            if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM &&
+                    firstSquare.horizontalLocation != secondSquare.horizontalLocation){
+                return null;
+            } else if (secondSquareSide == Square.Sides.LEFT || secondSquareSide == Square.Sides.RIGHT &&
+                    firstSquare.verticalLocation != secondSquare.verticalLocation){
+                return null;
+            }
+            int firstSquareSide = 3 - secondSquareSide;
+            if(firstSquare.sides[firstSquareSide]==secondSquare.sides[secondSquareSide]){
+                return new DeBruijnSquareNode(nodeCount,secondSquare.sides[secondSquareSide]);
+            }
+            return null;
         }
     }
 
     class DeBruijnSquareNode extends DeBruijnGraphNode<DeBruijnSquareEdge>{
-        int squareRef;
-        public DeBruijnSquareNode(int index){
+        int color;
+        public DeBruijnSquareNode(int index, int color){
             super(index);
-            this.squareRef=index;
         }
 
-        public int getSquareRef() {
-            return squareRef;
-        }
     }
 
+    /**
+     * Square version of DeBruijnGraphEdge
+     */
     class DeBruijnSquareEdge extends DeBruijnGraphEdge<DeBruijnSquareNode>{
-        int squareRef;
-        public DeBruijnSquareEdge(DeBruijnSquareNode firsteNode, DeBruijnSquareNode secondNode, int i){
+        private int squareRef;
+        private boolean isVertical;
+
+        /**
+         * creates a new edge going through a square
+         * @param firsteNode first node
+         * @param secondNode second node
+         * @param i index of edge (NOT the square it refers to)
+         * @param vertical true if vertical, otherwise horizontal
+         */
+        public DeBruijnSquareEdge(DeBruijnSquareNode firsteNode, DeBruijnSquareNode secondNode, int i, boolean vertical){
             super(firsteNode,secondNode,i);
             this.squareRef=i;
+            this.isVertical = vertical;
+            this.index = i;
         }
 
+        /**
+         * use this, NOT index, to find what square an edge refers to
+         * @return the number of the square
+         */
         public int getSquareRef() {
             return squareRef;
         }
+
+        /**
+         *
+         * @return true if the square is vertical, false if horizontal
+         */
+        public boolean isVertical() {
+            return isVertical;
+        }
+
+
     }
 
 
@@ -156,8 +248,8 @@ public class PuzzleAssembly {
      * allows nodes to be glued together
      */
     abstract class DeBruijnGraph<E extends DeBruijnGraphEdge, N extends DeBruijnGraphNode> implements Graph<E,N>{
-        private List<E> edges;
-        private List<N> nodes;
+        protected List<E> edges;
+        protected List<N> nodes;
         public DeBruijnGraph(){
             edges = new ArrayList<>();
             nodes = new ArrayList<>();
@@ -293,18 +385,87 @@ public class PuzzleAssembly {
     //classes immediately used for solving problems
 
     protected class Square{
-        private int top;
-        private int bottom;
-        private int left;
-        private int right;
-        private Map<String, Integer> colorToInt;
+        private final int[] sides = new int[4];
+        private final int verticalLocation;
+        private final int horizontalLocation;
+        private Map<DeBruijnSquareNode, Integer> associatedNodes;
+        private List<DeBruijnSquareEdge> associatedEdges;
 
         public Square(Map<String,Integer> colorToInt, String top, String left, String bottom, String right){
-            this.colorToInt = colorToInt;
-            this.top=colorToInt.get(top);
-            this.bottom=colorToInt.get(bottom);
-            this.left=colorToInt.get(left);
-            this.right=colorToInt.get(right);
+            associatedEdges = new ArrayList<>();
+            associatedNodes = new HashMap<>();
+            sides[Sides.TOP]=colorToInt.get(top);
+            sides[Sides.BOTTOM]=colorToInt.get(bottom);
+            sides[Sides.LEFT]=colorToInt.get(left);
+            sides[Sides.RIGHT]=colorToInt.get(right);
+
+            if(sides[Sides.TOP]==0){
+                verticalLocation=VerticalLocations.TOP;
+            } else if (sides[Sides.BOTTOM]==0) {
+                verticalLocation = VerticalLocations.BOTTOM;
+            } else {
+                verticalLocation = VerticalLocations.CENTER;
+            }
+
+            if(sides[Sides.LEFT]==0){
+                horizontalLocation = HorizontalLocations.LEFT;
+            } else if (sides[Sides.RIGHT] == 0) {
+                horizontalLocation = HorizontalLocations.RIGHT;
+            } else {
+                horizontalLocation = HorizontalLocations.CENTER;
+            }
+        }
+
+        public int getSide(int s){
+            return sides[s];
+        }
+
+        public int[] getSides() {
+            return sides;
+        }
+
+        public int getHorizontalLocation() {
+            return horizontalLocation;
+        }
+
+        public int getVerticalLocation() {
+            return verticalLocation;
+        }
+
+        public void addAssociatedNode(DeBruijnSquareNode n, int side){
+            associatedNodes.put(n,side);
+        }
+
+        public Map<DeBruijnSquareNode, Integer> getAssociatedNodes() {
+            return associatedNodes;
+        }
+
+        public List<DeBruijnSquareEdge> getAssociatedEdges() {
+            return associatedEdges;
+        }
+
+        public void addAssociatedEdges(DeBruijnSquareEdge e){
+            associatedEdges.add(e);
+        }
+
+        /* no-op */
+        class Sides{
+            public static final int TOP = 0;
+            public static final int LEFT = 1;
+            public static final int BOTTOM = 2;
+            public static final int RIGHT = 3;
+        }
+
+        class VerticalLocations{
+            public static final int TOP = 0;
+            public static final int CENTER = 1;
+            public static final int BOTTOM = 2;
+        }
+
+        class HorizontalLocations{
+            public static final int LEFT = 0;
+            public static final int CENTER = 1;
+            public static final int RIGHT = 2;
         }
     }
 
