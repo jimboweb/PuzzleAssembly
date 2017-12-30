@@ -63,7 +63,108 @@ public class PuzzleAssembly {
         return rtrn;
     }
 
+    interface Graph{
+        List<Edge> edges = new ArrayList<>();
+        List<Node> nodes = new ArrayList<>();
+        void addNode();
+        Node getNode(int i);
+        void addEdge();
+        Edge getEdge(int i);
+        List<Node> getNodes();
+        List<Edge> getEdges();
 
+    }
+
+    interface Edge{
+        Node[] nodes = new Node[2];
+        Node[] getNodes();
+        Node getNode(int i);
+    }
+
+    interface Node{
+        List<Edge> edges = new ArrayList<>();
+        void addEdge();
+        List<Edge> getEdges();
+        Edge getEdge(int i);
+    }
+
+    abstract class DeBruijnGraph implements Graph{
+        private List<DeBruijnGraphEdge> edges;
+        private List<DeBruijnGraphNode> nodes;
+        public DeBruijnGraph(){
+            edges = new ArrayList<>();
+            nodes = new ArrayList<>();
+        }
+        public void addNode(DeBruijnGraphNode n){
+            nodes.add(n);
+        }
+        public void addEdge(DeBruijnGraphEdge e){
+            edges.add(e);
+        }
+
+        //List<Edge> not same as List<DeBruinGraphEdge> there must be a way to deal with this
+//        public List<DeBruijnGraphEdge> getEdges() {
+//            return edges;
+//        }
+//
+//        public List<DeBruijnGraphNode> getNodes() {
+//            return nodes;
+//        }
+        public DeBruijnGraphEdge getEdge(int i){
+            if(i>edges.size()){
+                throw new IllegalArgumentException("requested index " + i + "but edges has length " + edges.size());
+            }
+            return edges.get(i);
+        }
+        public DeBruijnGraphNode getNode(int i){
+            if(i>nodes.size()){
+                throw new IllegalArgumentException("requested index " + i + "but edges has length " + nodes.size());
+            }
+            return nodes.get(i);
+        }
+        void glueNodes(List<Node> nodes){
+            //TODO: method to glue nodes together
+        }
+    }
+
+    abstract class DeBruijnGraphNode implements Node{
+        private List<DeBruijnGraphEdge> edges = new ArrayList<>();
+        public void addEdge(DeBruijnGraphEdge e){
+            edges.add(e);
+        }
+        public DeBruijnGraphEdge getEdge(int ind){
+            return edges.get(ind);
+        }
+
+//        public List<DeBruijnGraphEdge> getEdges() {
+//            return edges;
+//        }
+
+        public void glueToNode(Node n){
+            //TODO: method to glue to node n
+        }
+    }
+
+    abstract class DeBruijnGraphEdge implements Edge{
+        private DeBruijnGraphNode[] nodes = new DeBruijnGraphNode[2];
+        public DeBruijnGraphEdge(DeBruijnGraphNode firstNode, DeBruijnGraphNode secondNode){
+            nodes[0] = firstNode;
+            nodes[1] = secondNode;
+        }
+
+        public DeBruijnGraphNode[] getNodes() {
+            return nodes;
+        }
+        public DeBruijnGraphNode getNode(int i){
+            if(i>1){
+                throw new IllegalArgumentException("node index can only be 0 or 1");
+            }
+            return nodes[i];
+        }
+        public void glueNodeToNode(int i){
+            //TODO: connect to glued node
+        }
+    }
 
 
     //classes immediately used for solving problems
