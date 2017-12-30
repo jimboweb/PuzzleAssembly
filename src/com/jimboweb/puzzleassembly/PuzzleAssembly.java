@@ -45,6 +45,7 @@ public class PuzzleAssembly {
             }
             rtrn.add(new ArrayList<String>(Arrays.asList(nextInput)));
         }
+
         return rtrn;
     }
 
@@ -74,7 +75,7 @@ public class PuzzleAssembly {
         private int right;
         private Map<String, Integer> colorToInt;
 
-        public Square(Map<String,Integer> colorToInt, String top, String bottom, String left, String right){
+        public Square(Map<String,Integer> colorToInt, String top, String left, String bottom, String right){
             this.colorToInt = colorToInt;
             this.top=colorToInt.get(top);
             this.bottom=colorToInt.get(bottom);
