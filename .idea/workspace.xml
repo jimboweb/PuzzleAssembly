@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94032d40-651b-41bc-9a36-00713c7dc138" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1432">
-              <caret line="118" column="104" lean-forward="true" selection-start-line="118" selection-start-column="104" selection-end-line="118" selection-end-column="104" />
+            <state relative-caret-position="505">
+              <caret line="671" column="34" lean-forward="true" selection-start-line="671" selection-start-column="34" selection-end-line="671" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3305#3306#0" expanded="true" />
@@ -48,8 +47,18 @@
                 <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="e#20897#20898#0" expanded="true" />
+                <element signature="e#20937#20938#0" expanded="true" />
+                <element signature="e#21012#21013#0" expanded="true" />
+                <element signature="e#21048#21049#0" expanded="true" />
                 <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="e#21884#21885#0" expanded="true" />
+                <element signature="e#21918#21919#0" expanded="true" />
+                <element signature="e#21954#21955#0" expanded="true" />
+                <element signature="e#21991#21992#0" expanded="true" />
+                <element signature="e#22113#22114#0" expanded="true" />
+                <element signature="e#22158#22159#0" expanded="true" />
                 <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
               </folding>
@@ -272,12 +281,12 @@
       <workItem from="1514645759400" duration="11982000" />
       <workItem from="1514665908051" duration="8513000" />
       <workItem from="1514691957609" duration="6393000" />
-      <workItem from="1514725527773" duration="2650000" />
+      <workItem from="1514725527773" duration="4074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41344000" />
+    <option name="totallyTimeSpent" value="42768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="43" width="1375" height="837" extended-state="0" />
@@ -354,8 +363,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -403,8 +422,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -452,8 +481,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -501,8 +540,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -550,8 +599,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -599,8 +658,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>
@@ -640,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1432">
-          <caret line="118" column="104" lean-forward="true" selection-start-line="118" selection-start-column="104" selection-end-line="118" selection-end-column="104" />
+        <state relative-caret-position="505">
+          <caret line="671" column="34" lean-forward="true" selection-start-line="671" selection-start-column="34" selection-end-line="671" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3305#3306#0" expanded="true" />
@@ -667,8 +736,18 @@
             <element signature="class#Sides#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#20897#20898#0" expanded="true" />
+            <element signature="e#20937#20938#0" expanded="true" />
+            <element signature="e#21012#21013#0" expanded="true" />
+            <element signature="e#21048#21049#0" expanded="true" />
             <element signature="docComment;class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#UserInput#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="e#21884#21885#0" expanded="true" />
+            <element signature="e#21918#21919#0" expanded="true" />
+            <element signature="e#21954#21955#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22113#22114#0" expanded="true" />
+            <element signature="e#22158#22159#0" expanded="true" />
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
           </folding>

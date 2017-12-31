@@ -608,8 +608,21 @@ public class PuzzleAssembly {
     /**
      * interface that allows me to input the data
      */
-    private interface Inputter{
+    public interface Inputter{
         public List<String> input(int numberOfInputs);
+    }
+
+    public class TestInput implements Inputter{
+        private List<String> input;
+
+        public void getInput(List<String> input){
+            this.input=input;
+        }
+
+        @Override
+        public List<String> input(int numberOfInputs) {
+            return input;
+        }
     }
 
     /**
@@ -635,8 +648,32 @@ public class PuzzleAssembly {
 
     }
 
-    //main class, thead class and general properties
+    public interface Outputter{
+        public void output(String s);
+    }
 
+    public class TestOutputter implements Outputter {
+        private String output;
+
+        @Override
+        public void output(String s) {
+            output = s;
+        }
+
+        public String getOutput(){
+            return output;
+        }
+    }
+
+    private class ConsoleOutputter implements Outputter{
+
+        @Override
+        public void output(String s) {
+            System.out.println(s);
+        }
+    }
+
+    //main class, thead class and general properties
     private static class PuzzleThread implements Runnable{
         @Override
         public void run() {
