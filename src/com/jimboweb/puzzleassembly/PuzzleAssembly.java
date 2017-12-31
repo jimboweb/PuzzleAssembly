@@ -82,6 +82,9 @@ public class PuzzleAssembly {
         return rtrn;
     }
 
+    /**
+     * version of DeBruijnGraph for squares problem
+     */
     class DeBruinSquareGraph extends DeBruijnGraph<DeBruijnSquareEdge,DeBruijnSquareNode>{
         int nodeCount = 0;
         int edgeCount = 0;
@@ -91,49 +94,94 @@ public class PuzzleAssembly {
             makeNodesAndEdges(squares);
         }
 
+        /**
+         * goes through all the squares and finds places where they make a node
+         * @param squares list of squares from the method that makes the squares from input
+         */
         private void makeNodesAndEdges(List<Square> squares){
             int nodeCount = 0;
             // TODO: 12/30/17 make these into separate methods
             for(Square square:squares){
                 for (Square othersquare:squares) {
-                    //this should mean each square is compared only once with each other square
-                    //reducing time and preventing duplicate nodes
-                    if(othersquare.getIndex()>square.getIndex()) {
-                        List<DeBruijnSquareNode> newNodes = new ArrayList<>();
-                        for (int s : othersquare.sideColor) {
-                            DeBruijnSquareNode newNode = addNodeToMatchingSides(square, othersquare, s);
-                            if (newNode != null) {
-                                newNodes.add(newNode);
-                                nodeCount++;
-                                square.addAssociatedNode(newNode, 3 - s);
-                                othersquare.addAssociatedNode(newNode, s);
-                            }
-                        }
-                        if (!newNodes.isEmpty()) {
-                            nodes.addAll(newNodes);
-                        }
-                    }
+                    addNodesToSquares(square,othersquare);
                 }
-                for(Map.Entry<DeBruijnSquareNode,Integer> entry:square.associatedNodes.entrySet()){
-                    for(Map.Entry<DeBruijnSquareNode,Integer> otherEntry:square.associatedNodes.entrySet()){
-                        if(otherEntry.getKey().index>entry.getKey().index) {
-                            if (entry.getValue() + otherEntry.getValue() == 3) {
-                                boolean vertical = (entry.getValue() & 1) != 1;
-                                DeBruijnSquareEdge newEdge = new DeBruijnSquareEdge(entry.getKey(),
-                                        otherEntry.getKey(),
-                                        edgeCount,
-                                        vertical);
-                                addEdge(newEdge);
-                                square.addAssociatedEdges(newEdge);
-                                edgeCount++;
-                            }  
-                        }
-                    }
-                }
-
+                addEdgesToSquare(square);
             }
 
         }
+
+        /**
+         * finds all the internal edges in a single square
+         * @param square a single square from the list
+         */
+        private void addEdgesToSquare(Square square){
+            for(Map.Entry<DeBruijnSquareNode,Integer> entry:square.associatedNodes.entrySet()){
+                for(Map.Entry<DeBruijnSquareNode,Integer> otherEntry:square.associatedNodes.entrySet()){
+                    if(otherEntry.getKey().index>entry.getKey().index) {
+                        if (entry.getValue() + otherEntry.getValue() == 3) {
+                            addEdgeToSquare(entry,otherEntry,square);
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * adds a particular edge from a square
+         * @param entry one of the edges in associatedNodes
+         * @param otherEntry another edge in associatedNodes
+         * @param square the square we're looking at
+         */
+        private void addEdgeToSquare(Map.Entry<DeBruijnSquareNode,Integer> entry, Map.Entry<DeBruijnSquareNode,Integer> otherEntry, Square square){
+            boolean vertical = (entry.getValue() & 1) != 1;
+            DeBruijnSquareEdge newEdge = new DeBruijnSquareEdge(entry.getKey(),
+                    otherEntry.getKey(),
+                    edgeCount,
+                    vertical);
+            addEdge(newEdge);
+            square.addAssociatedEdges(newEdge);
+            edgeCount++;
+
+        }
+
+        /**
+         * compares two squares and adds all the possible nodes between them
+         * @param square
+         * @param othersquare
+         */
+        private void addNodesToSquares(Square square, Square othersquare){
+            //this should mean each square is compared only once with each other square
+            //reducing time and preventing duplicate nodes
+            if(!(othersquare.getIndex()>square.getIndex())) {
+                return;
+            }
+            List<DeBruijnSquareNode> newNodes = new ArrayList<>();
+            for (int s : othersquare.sideColor) {
+                DeBruijnSquareNode newNode = addNodeToMatchingSides(square, othersquare, s);
+                if (newNode != null) {
+                    addNewNode(newNodes,newNode, square, othersquare,s);
+                }
+            }
+            if (!newNodes.isEmpty()) {
+                nodes.addAll(newNodes);
+            }
+        }
+
+        /**
+         * adds a node to the newNodes list and to the square's associated nodes
+         * @param newNodes
+         * @param newNode
+         * @param square
+         * @param othersquare
+         */
+        private void addNewNode(List<DeBruijnSquareNode> newNodes, DeBruijnSquareNode newNode, Square square, Square othersquare, int s){
+            newNodes.add(newNode);
+            nodeCount++;
+            square.addAssociatedNode(newNode, 3 - s);
+            othersquare.addAssociatedNode(newNode, s);
+
+        }
+
 
         /**
          * <p>this will add a node if:</p>
@@ -147,28 +195,9 @@ public class PuzzleAssembly {
          */
         private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
             int firstSquareSide = 3 - secondSquareSide;
-            // TODO: 12/31/17 break this into separate methods
             if(secondSquare.isCornerSide(secondSquareSide)){
-                if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.LEFT){
-                    if(!topLeftNodeExists) {
-                        topLeftNodeExists=true;
-                        return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.TOP, secondSquare, Square.Sides.LEFT);
-                    }
-                    return null;
-                } else if (secondSquareSide == Square.Sides.BOTTOM || secondSquareSide == Square.Sides.RIGHT){
-                    if(!bottomRightNodeExists) {
-                        bottomRightNodeExists=true;
-                        return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.BOTTOM, secondSquare, Square.Sides.RIGHT);
-                    }
-                    return null;
-                } else {
-                    return null;
-                }
-
-
+                return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
            }
-
-
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
             if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM &&
@@ -183,8 +212,37 @@ public class PuzzleAssembly {
             }
             return null;
         }
+        /**
+         * This is for the upper left hand and lower right hand corners
+         * @param secondSquareSide the side that might be an ul or lr corner
+         * @param firstSquare
+         * @param secondSquare
+         * @return a corner node if one doesn't already exist
+         */
+        private DeBruijnSquareNode addNodesToCornerSide(int secondSquareSide,Square firstSquare, Square secondSquare){
+            if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.LEFT){
+                if(!topLeftNodeExists) {
+                    topLeftNodeExists=true;
+                    return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.TOP, secondSquare, Square.Sides.LEFT);
+                }
+                return null;
+            } else if (secondSquareSide == Square.Sides.BOTTOM || secondSquareSide == Square.Sides.RIGHT){
+                if(!bottomRightNodeExists) {
+                    bottomRightNodeExists=true;
+                    return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.BOTTOM, secondSquare, Square.Sides.RIGHT);
+                }
+                return null;
+            } else {
+                return null;
+            }
+
+        }
     }
 
+
+    /**
+     * version of DeBruijnNode for square problem
+     */
     class DeBruijnSquareNode extends DeBruijnGraphNode<DeBruijnSquareEdge>{
         int color;
         Map<Square,Integer> squareReferences;
