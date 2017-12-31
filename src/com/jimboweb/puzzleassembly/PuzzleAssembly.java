@@ -34,8 +34,10 @@ public class PuzzleAssembly {
      */
     private ArrayList<Square> makeSquareList(Map<String,Integer> colorToInt,List<List<String>> brokenUpInputs){
         List<Square> squares = new ArrayList<>();
+        int squareCount = 0;
         for(List<String> colors:brokenUpInputs){
-            squares.add(new Square(colorToInt,colors.get(0),colors.get(1),colors.get(2),colors.get(3)));
+            squares.add(new Square(colorToInt,colors.get(0),colors.get(1),colors.get(2),colors.get(3), squareCount));
+            squareCount++;
         }
         return (ArrayList<Square>) squares;
     }
@@ -83,6 +85,8 @@ public class PuzzleAssembly {
     class DeBruinSquareGraph extends DeBruijnGraph<DeBruijnSquareEdge,DeBruijnSquareNode>{
         int nodeCount = 0;
         int edgeCount = 0;
+        boolean topLeftNodeExists = false;
+        boolean bottomRightNodeExists = false;
         public DeBruinSquareGraph(List<Square> squares) {
             makeNodesAndEdges(squares);
         }
@@ -92,32 +96,37 @@ public class PuzzleAssembly {
             // TODO: 12/30/17 make these into separate methods
             for(Square square:squares){
                 for (Square othersquare:squares) {
-                    List<DeBruijnSquareNode> newNodes = new ArrayList<>();
-                    for(int s:othersquare.sides){
-                        DeBruijnSquareNode newNode = addNodeToMatchingSides(square,othersquare,s);
-                        if(newNode!=null) {
-                            newNodes.add(newNode);
-                            nodeCount++;
-                            square.addAssociatedNode(newNode,3 - s);
-                            othersquare.addAssociatedNode(newNode, s);
+                    //this should mean each square is compared only once with each other square
+                    //reducing time and preventing duplicate nodes
+                    if(othersquare.getIndex()>square.getIndex()) {
+                        List<DeBruijnSquareNode> newNodes = new ArrayList<>();
+                        for (int s : othersquare.sideColor) {
+                            DeBruijnSquareNode newNode = addNodeToMatchingSides(square, othersquare, s);
+                            if (newNode != null) {
+                                newNodes.add(newNode);
+                                nodeCount++;
+                                square.addAssociatedNode(newNode, 3 - s);
+                                othersquare.addAssociatedNode(newNode, s);
+                            }
+                        }
+                        if (!newNodes.isEmpty()) {
+                            nodes.addAll(newNodes);
                         }
                     }
-                    if(!newNodes.isEmpty()){
-                        nodes.addAll(newNodes);
-                    }
-
                 }
                 for(Map.Entry<DeBruijnSquareNode,Integer> entry:square.associatedNodes.entrySet()){
                     for(Map.Entry<DeBruijnSquareNode,Integer> otherEntry:square.associatedNodes.entrySet()){
-                        if(entry.getValue()+otherEntry.getValue()==3){
-                            boolean vertical = (entry.getValue()&1)!=1;
-                            DeBruijnSquareEdge newEdge = new DeBruijnSquareEdge(entry.getKey(),
-                                    otherEntry.getKey(),
-                                    edgeCount,
-                                    vertical);
-                            addEdge(newEdge);
-                            square.addAssociatedEdges(newEdge);
-                            edgeCount++;
+                        if(otherEntry.getKey().index>entry.getKey().index) {
+                            if (entry.getValue() + otherEntry.getValue() == 3) {
+                                boolean vertical = (entry.getValue() & 1) != 1;
+                                DeBruijnSquareEdge newEdge = new DeBruijnSquareEdge(entry.getKey(),
+                                        otherEntry.getKey(),
+                                        edgeCount,
+                                        vertical);
+                                addEdge(newEdge);
+                                square.addAssociatedEdges(newEdge);
+                                edgeCount++;
+                            }  
                         }
                     }
                 }
@@ -137,6 +146,29 @@ public class PuzzleAssembly {
          * @param secondSquareSide the side the second square is trying to match
          */
         private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
+            int firstSquareSide = 3 - secondSquareSide;
+            // TODO: 12/31/17 break this into separate methods
+            if(secondSquare.isCornerSide(secondSquareSide)){
+                if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.LEFT){
+                    if(!topLeftNodeExists) {
+                        topLeftNodeExists=true;
+                        return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.TOP, secondSquare, Square.Sides.LEFT);
+                    }
+                    return null;
+                } else if (secondSquareSide == Square.Sides.BOTTOM || secondSquareSide == Square.Sides.RIGHT){
+                    if(!bottomRightNodeExists) {
+                        bottomRightNodeExists=true;
+                        return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.BOTTOM, secondSquare, Square.Sides.RIGHT);
+                    }
+                    return null;
+                } else {
+                    return null;
+                }
+
+
+           }
+
+
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
             if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM &&
@@ -146,9 +178,8 @@ public class PuzzleAssembly {
                     firstSquare.verticalLocation != secondSquare.verticalLocation){
                 return null;
             }
-            int firstSquareSide = 3 - secondSquareSide;
-            if(firstSquare.sides[firstSquareSide]==secondSquare.sides[secondSquareSide]){
-                return new DeBruijnSquareNode(nodeCount,secondSquare.sides[secondSquareSide]);
+            if(firstSquare.sideColor[firstSquareSide]==secondSquare.sideColor[secondSquareSide]){
+                return new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
             }
             return null;
         }
@@ -156,8 +187,11 @@ public class PuzzleAssembly {
 
     class DeBruijnSquareNode extends DeBruijnGraphNode<DeBruijnSquareEdge>{
         int color;
-        public DeBruijnSquareNode(int index, int color){
+        Map<Square,Integer> squareReferences;
+        public DeBruijnSquareNode(int index, int color, Square firstSquareRef, int firstSquareSide, Square secondSquareRef, int secondSquareSide){
             super(index);
+            squareReferences.put(firstSquareRef,firstSquareSide);
+            squareReferences.put(secondSquareRef,secondSquareSide);
         }
 
     }
@@ -385,43 +419,61 @@ public class PuzzleAssembly {
     //classes immediately used for solving problems
 
     protected class Square{
-        private final int[] sides = new int[4];
+        private final int[] sideColor = new int[4];
         private final int verticalLocation;
         private final int horizontalLocation;
         private Map<DeBruijnSquareNode, Integer> associatedNodes;
         private List<DeBruijnSquareEdge> associatedEdges;
-
-        public Square(Map<String,Integer> colorToInt, String top, String left, String bottom, String right){
+        private int index;
+        public Square(Map<String,Integer> colorToInt, String top, String left, String bottom, String right, int index){
             associatedEdges = new ArrayList<>();
             associatedNodes = new HashMap<>();
-            sides[Sides.TOP]=colorToInt.get(top);
-            sides[Sides.BOTTOM]=colorToInt.get(bottom);
-            sides[Sides.LEFT]=colorToInt.get(left);
-            sides[Sides.RIGHT]=colorToInt.get(right);
+            sideColor[Sides.TOP]=colorToInt.get(top);
+            sideColor[Sides.BOTTOM]=colorToInt.get(bottom);
+            sideColor[Sides.LEFT]=colorToInt.get(left);
+            sideColor[Sides.RIGHT]=colorToInt.get(right);
+            this.index=index;
 
-            if(sides[Sides.TOP]==0){
+            if(sideColor[Sides.TOP]==0){
                 verticalLocation=VerticalLocations.TOP;
-            } else if (sides[Sides.BOTTOM]==0) {
+            } else if (sideColor[Sides.BOTTOM]==0) {
                 verticalLocation = VerticalLocations.BOTTOM;
             } else {
                 verticalLocation = VerticalLocations.CENTER;
             }
 
-            if(sides[Sides.LEFT]==0){
+            if(sideColor[Sides.LEFT]==0){
                 horizontalLocation = HorizontalLocations.LEFT;
-            } else if (sides[Sides.RIGHT] == 0) {
+            } else if (sideColor[Sides.RIGHT] == 0) {
                 horizontalLocation = HorizontalLocations.RIGHT;
             } else {
                 horizontalLocation = HorizontalLocations.CENTER;
             }
         }
 
-        public int getSide(int s){
-            return sides[s];
+        public int getIndex() {
+            return index;
         }
 
-        public int[] getSides() {
-            return sides;
+        public boolean isCornerSide(int s){
+            return (isUpperLeftCorner() && (s == Sides.TOP || s == Sides.LEFT)) ||
+                    (isBottomRightCorner() && (s == Sides.BOTTOM || s == Sides.RIGHT));
+        }
+
+        public boolean isUpperLeftCorner(){
+            return verticalLocation == VerticalLocations.TOP && horizontalLocation == HorizontalLocations.LEFT;
+        }
+
+        public boolean isBottomRightCorner(){
+            return verticalLocation== VerticalLocations.BOTTOM && horizontalLocation == HorizontalLocations.RIGHT;
+        }
+
+        public int getSide(int s){
+            return sideColor[s];
+        }
+
+        public int[] getSideColor() {
+            return sideColor;
         }
 
         public int getHorizontalLocation() {
