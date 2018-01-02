@@ -204,10 +204,10 @@ public class PuzzleAssembly {
            }
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
-            if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM &&
+            if((secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM) &&
                     firstSquare.horizontalLocation != secondSquare.horizontalLocation){
                 return null;
-            } else if (secondSquareSide == Square.Sides.LEFT || secondSquareSide == Square.Sides.RIGHT &&
+            } else if ((secondSquareSide == Square.Sides.LEFT || secondSquareSide == Square.Sides.RIGHT) &&
                     firstSquare.verticalLocation != secondSquare.verticalLocation){
                 return null;
             }
