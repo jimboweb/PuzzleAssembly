@@ -1,5 +1,7 @@
 package com.jimboweb.puzzleassembly;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,24 +15,26 @@ public class PuzzleAssembly {
      * general method to solve the problem
      *
      */
-    private void AssemblePuzzle(Inputter inputter){
+    public void AssemblePuzzle(Inputter inputter, Outputter outputter){
         //haha look at me using inversion of control
         this.inputter = inputter;
+        this.outputter = outputter;
         List<String> inputs = (ArrayList<String>)inputter.input(numberOfInputs);
         Map<String, Integer> colorToInt;
         List<String> colorsUsed = new ArrayList<>();
         List<List<String>> brokenUpInputs = breakupInputs(inputs);
         colorToInt = makeColorToIntMap(brokenUpInputs);
         List<Square> squares = makeSquareList(colorToInt,brokenUpInputs);
-
-
+        DeBruinSquareGraph gr = new DeBruinSquareGraph(squares);
+        outputter.outputLine("Nothing to show yet");
     }
 
     /**
-     * creates the Square objects
+     * creates the Square objects - TESTED AND WORKS
      * @param colorToInt a map matching each color to an integer
      * @param brokenUpInputs list of list of colors
      * @return List of square objects
+     *
      */
     private ArrayList<Square> makeSquareList(Map<String,Integer> colorToInt,List<List<String>> brokenUpInputs){
         List<Square> squares = new ArrayList<>();
@@ -52,8 +56,8 @@ public class PuzzleAssembly {
     private ArrayList<List<String>> breakupInputs(List<String> inputs) throws IllegalArgumentException {
         ArrayList<List<String>> rtrn = new ArrayList<>();
         for(String input:inputs){
-            input = input.substring(input.indexOf("("),input.indexOf(")"));
-            String[] nextInput = input.split("");
+            input = input.substring(input.indexOf("(")+1,input.indexOf(")"));
+            String[] nextInput = input.split(",");
             if(nextInput.length!=4){
                 throw new IllegalArgumentException("at least one input line does not have four colors");
             }
@@ -96,11 +100,11 @@ public class PuzzleAssembly {
 
         /**
          * goes through all the squares and finds places where they make a node
+         * TESTED - No exceptions but not the right outcome. Should be 18 nodes but there are only 6.
          * @param squares list of squares from the method that makes the squares from input
          */
         private void makeNodesAndEdges(List<Square> squares){
             int nodeCount = 0;
-            // TODO: 12/30/17 make these into separate methods
             for(Square square:squares){
                 for (Square othersquare:squares) {
                     addNodesToSquares(square,othersquare);
@@ -156,7 +160,7 @@ public class PuzzleAssembly {
                 return;
             }
             List<DeBruijnSquareNode> newNodes = new ArrayList<>();
-            for (int s : othersquare.sideColor) {
+            for (int s = 0; s < othersquare.sideColor.length; s++) {
                 DeBruijnSquareNode newNode = addNodeToMatchingSides(square, othersquare, s);
                 if (newNode != null) {
                     addNewNode(newNodes,newNode, square, othersquare,s);
@@ -219,7 +223,8 @@ public class PuzzleAssembly {
          * @param secondSquare
          * @return a corner node if one doesn't already exist
          */
-        private DeBruijnSquareNode addNodesToCornerSide(int secondSquareSide,Square firstSquare, Square secondSquare){
+        @Nullable
+        private DeBruijnSquareNode addNodesToCornerSide(int secondSquareSide, Square firstSquare, Square secondSquare){
             if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.LEFT){
                 if(!topLeftNodeExists) {
                     topLeftNodeExists=true;
@@ -245,13 +250,40 @@ public class PuzzleAssembly {
      */
     class DeBruijnSquareNode extends DeBruijnGraphNode<DeBruijnSquareEdge>{
         int color;
-        Map<Square,Integer> squareReferences;
+        List<SquareReference> squareReferences = new ArrayList<>();
         public DeBruijnSquareNode(int index, int color, Square firstSquareRef, int firstSquareSide, Square secondSquareRef, int secondSquareSide){
             super(index);
-            squareReferences.put(firstSquareRef,firstSquareSide);
-            squareReferences.put(secondSquareRef,secondSquareSide);
+            squareReferences.add(new SquareReference(firstSquareRef,firstSquareSide));
+            squareReferences.add(new SquareReference(secondSquareRef,secondSquareSide));
         }
 
+        private class SquareReference{
+            Square square;
+            int location;
+
+            public SquareReference(Square square, int location) {
+                this.square = square;
+                this.location = location;
+            }
+
+            @Override
+            public String toString() {
+                // TODO: 12/31/17 make it so it lists the sides by side 
+                return "SquareReference{" +
+                        "square=" + square +
+                        ", location=" + location +
+                        '}';
+            }
+        }
+
+        @Override
+        public String toString() {
+            //TODO: change this so it lists the color by color if possible
+            return "DeBruijnSquareNode{" +
+                    "color=" + color +
+                    ", squareReferences=" + squareReferences +
+                    '}';
+        }
     }
 
     /**
@@ -477,6 +509,7 @@ public class PuzzleAssembly {
     //classes immediately used for solving problems
 
     protected class Square{
+        private String topColor, leftColor, bottomColor, rightColor;
         private final int[] sideColor = new int[4];
         private final int verticalLocation;
         private final int horizontalLocation;
@@ -484,6 +517,10 @@ public class PuzzleAssembly {
         private List<DeBruijnSquareEdge> associatedEdges;
         private int index;
         public Square(Map<String,Integer> colorToInt, String top, String left, String bottom, String right, int index){
+            topColor=top;
+            bottomColor = bottom;
+            leftColor = left;
+            rightColor = right;
             associatedEdges = new ArrayList<>();
             associatedNodes = new HashMap<>();
             sideColor[Sides.TOP]=colorToInt.get(top);
@@ -507,6 +544,11 @@ public class PuzzleAssembly {
             } else {
                 horizontalLocation = HorizontalLocations.CENTER;
             }
+        }
+
+        @Override
+        public String toString() {
+            return "(" + topColor + ", " + leftColor + ", " + bottomColor + ", " + rightColor + ")";
         }
 
         public int getIndex() {
@@ -615,7 +657,7 @@ public class PuzzleAssembly {
     public class TestInput implements Inputter{
         private List<String> input;
 
-        public void getInput(List<String> input){
+        public void setInput(List<String> input){
             this.input=input;
         }
 
@@ -628,7 +670,7 @@ public class PuzzleAssembly {
     /**
      * implementation of Inputter that gets data from user
      */
-    private class UserInput implements Inputter{
+    private class UserInputter implements Inputter{
         /**
          * inputs 25 strings
          * @return an arrayList of 25 strings
@@ -650,14 +692,20 @@ public class PuzzleAssembly {
 
     public interface Outputter{
         public void output(String s);
+        public void outputLine(String s);
     }
 
     public class TestOutputter implements Outputter {
-        private String output;
+        private String output = "";
 
         @Override
         public void output(String s) {
-            output = s;
+            output += s;
+        }
+
+        @Override
+        public void outputLine(String s) {
+            output += s + "\n";
         }
 
         public String getOutput(){
@@ -669,6 +717,11 @@ public class PuzzleAssembly {
 
         @Override
         public void output(String s) {
+            System.out.print(s);
+        }
+
+        @Override
+        public void outputLine(String s) {
             System.out.println(s);
         }
     }
@@ -678,7 +731,7 @@ public class PuzzleAssembly {
         @Override
         public void run() {
             PuzzleAssembly pa = new PuzzleAssembly();
-            pa.AssemblePuzzle(pa.new UserInput());
+            pa.AssemblePuzzle(pa.new UserInputter(), pa.new ConsoleOutputter());
         }
     }
 
@@ -690,7 +743,8 @@ public class PuzzleAssembly {
 
 
     FastScanner scanner;
-    Inputter inputter;
+    public Inputter inputter;
+    public Outputter outputter;
 
     public PuzzleAssembly(){
         scanner = new FastScanner();
