@@ -201,7 +201,7 @@ public class PuzzleAssembly {
             int firstSquareSide = 3 - secondSquareSide;
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
-           }
+            }
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
             if((secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM) &&
