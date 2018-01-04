@@ -198,7 +198,7 @@ public class PuzzleAssembly {
          * @param secondSquareSide the side the second square is trying to match
          */
         private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
-            int firstSquareSide = 3 - secondSquareSide;
+            int firstSquareSide = (secondSquareSide + 2) % 4;
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
             }
@@ -253,6 +253,7 @@ public class PuzzleAssembly {
         List<SquareReference> squareReferences = new ArrayList<>();
         public DeBruijnSquareNode(int index, int color, Square firstSquareRef, int firstSquareSide, Square secondSquareRef, int secondSquareSide){
             super(index);
+            this.color = color;
             squareReferences.add(new SquareReference(firstSquareRef,firstSquareSide));
             squareReferences.add(new SquareReference(secondSquareRef,secondSquareSide));
         }
