@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94032d40-651b-41bc-9a36-00713c7dc138" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="255" column="31" lean-forward="true" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
+            <state relative-caret-position="243">
+              <caret line="223" column="24" lean-forward="true" selection-start-line="223" selection-start-column="24" selection-end-line="223" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />
@@ -58,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
-              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,8 +76,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>switch</find>
-      <find>todo</find>
       <find>addedge</find>
+      <find>todo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -322,16 +320,13 @@
       <workItem from="1514725527773" duration="11321000" />
       <workItem from="1514927344859" duration="589000" />
       <workItem from="1514927938512" duration="969000" />
-      <workItem from="1515093635241" duration="4022000" />
+      <workItem from="1515093635241" duration="5474000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="PuzzleAssemblyTest - 2018.01.04 at 15h 01m 15s.xml">
       <configuration name="PuzzleAssemblyTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PuzzleAssemblyTest_testAssemblePuzzle - 2018.01.02 at 16h 18m 06s.xml">
-      <configuration name="PuzzleAssemblyTest.testAssemblePuzzle" configurationId="JUnit" />
     </history-entry>
     <history-entry file="PuzzleAssemblyTest_testAssemblePuzzle - 2018.01.02 at 16h 18m 18s.xml">
       <configuration name="PuzzleAssemblyTest.testAssemblePuzzle" configurationId="JUnit" />
@@ -357,9 +352,12 @@
     <history-entry file="PuzzleAssemblyTest_testAssemblePuzzle - 2018.01.04 at 16h 03m 33s.xml">
       <configuration name="PuzzleAssemblyTest.testAssemblePuzzle" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PuzzleAssemblyTest_testAssemblePuzzle - 2018.01.04 at 17h 36m 15s.xml">
+      <configuration name="PuzzleAssemblyTest.testAssemblePuzzle" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55595000" />
+    <option name="totallyTimeSpent" value="57047000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="43" width="1375" height="837" extended-state="0" />
@@ -402,42 +400,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>206</line>
-          <properties />
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>209</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>213</line>
-          <properties />
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>214</line>
-          <properties />
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>164</line>
-          <properties />
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="66" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -881,7 +847,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssemblyTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -890,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="255" column="31" lean-forward="true" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
+        <state relative-caret-position="243">
+          <caret line="223" column="24" lean-forward="true" selection-start-line="223" selection-start-column="24" selection-end-line="223" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />

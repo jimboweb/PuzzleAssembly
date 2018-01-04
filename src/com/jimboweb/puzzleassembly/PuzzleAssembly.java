@@ -202,6 +202,8 @@ public class PuzzleAssembly {
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
             }
+            //TODO: fix the black edges. A black edge can connect to any black edgeo of matching side unless they have the same vertical position or it's a corner edge.
+
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
             if((secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM) &&
@@ -216,6 +218,13 @@ public class PuzzleAssembly {
             }
             return null;
         }
+
+        private DeBruijnSquareNode matchBlackEdges(){
+            //TODO: match all the black edges, including the corners
+            return null;
+        }
+
+
         /**
          * This is for the upper left hand and lower right hand corners
          * @param secondSquareSide the side that might be an ul or lr corner
@@ -269,7 +278,6 @@ public class PuzzleAssembly {
 
             @Override
             public String toString() {
-                // TODO: 12/31/17 make it so it lists the sides by side 
                 return "SquareReference{" +
                         "square=" + square +
                         ", location=" + location +
@@ -279,7 +287,6 @@ public class PuzzleAssembly {
 
         @Override
         public String toString() {
-            //TODO: change this so it lists the color by color if possible
             return "DeBruijnSquareNode{" +
                     "color=" + color +
                     ", squareReferences=" + squareReferences +
