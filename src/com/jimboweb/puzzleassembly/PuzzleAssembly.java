@@ -197,8 +197,12 @@ public class PuzzleAssembly {
          * @param secondSquare the second square
          * @param secondSquareSide the side the second square is trying to match
          */
+        @Nullable
         private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
             int firstSquareSide = (secondSquareSide + 2) % 4;
+            if(firstSquare.sideColor[firstSquareSide]!=secondSquare.sideColor[secondSquareSide]){
+                return null;
+            }
             if(firstSquare.isCornerSide(firstSquareSide)){
                 return null;
             }
@@ -209,27 +213,23 @@ public class PuzzleAssembly {
             boolean horizontal = (secondSquareSide & 1) == 0;
             boolean differentHorizontalLocation = firstSquare.horizontalLocation != secondSquare.horizontalLocation;
             boolean differentVerticalLocation = firstSquare.verticalLocation != secondSquare.verticalLocation;
-            //TODO: fix the black edges. A black edge can connect to any black edgeo of matching side unless they have the same vertical position or it's a corner edge.
-
-            //I know I could do this with one huge conditional but it would just be confusing and
-            //it will all compile to the same thing anyway
+            if(secondSquare.sideColor[secondSquareSide]==0){
+                return matchBlackSide(firstSquare,secondSquare,firstSquareSide,secondSquareSide,horizontal);
+            }
             if(horizontal && differentHorizontalLocation){
                 return null;
             }
             if (!horizontal && differentVerticalLocation){
                 return null;
             }
-            if(firstSquare.sideColor[firstSquareSide]==secondSquare.sideColor[secondSquareSide]){
-                return new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
-            }
-            return null;
+            return new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
         }
 
         @Nullable
         private DeBruijnSquareNode matchBlackSide(Square firstSquare,
                                                   Square secondSquare,
-                                                  int secondSquareSide,
                                                   int firstSquareSide,
+                                                  int secondSquareSide,
                                                   boolean horizontal){
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);

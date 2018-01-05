@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94032d40-651b-41bc-9a36-00713c7dc138" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="236" column="47" lean-forward="false" selection-start-line="236" selection-start-column="47" selection-end-line="236" selection-end-column="47" />
+            <state relative-caret-position="192">
+              <caret line="216" column="108" lean-forward="false" selection-start-line="216" selection-start-column="108" selection-end-line="216" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />
@@ -104,7 +103,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="55" />
     <option name="y" value="43" />
     <option name="width" value="1375" />
@@ -322,7 +321,7 @@
       <workItem from="1514927344859" duration="589000" />
       <workItem from="1514927938512" duration="969000" />
       <workItem from="1515093635241" duration="5522000" />
-      <workItem from="1515158710876" duration="3687000" />
+      <workItem from="1515158710876" duration="4158000" />
     </task>
     <servers />
   </component>
@@ -359,10 +358,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60782000" />
+    <option name="totallyTimeSpent" value="61253000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="43" width="1375" height="837" extended-state="1" />
+    <frame x="55" y="43" width="1375" height="837" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -405,7 +404,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="69" />
+      <option name="time" value="70" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -901,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="236" column="47" lean-forward="false" selection-start-line="236" selection-start-column="47" selection-end-line="236" selection-end-column="47" />
+        <state relative-caret-position="192">
+          <caret line="216" column="108" lean-forward="false" selection-start-line="216" selection-start-column="108" selection-end-line="216" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />
