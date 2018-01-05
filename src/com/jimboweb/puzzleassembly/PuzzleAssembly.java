@@ -161,7 +161,7 @@ public class PuzzleAssembly {
             }
             List<DeBruijnSquareNode> newNodes = new ArrayList<>();
             for (int s = 0; s < othersquare.sideColor.length; s++) {
-                DeBruijnSquareNode newNode = addNodeToMatchingSides(square, othersquare, s);
+                DeBruijnSquareNode newNode = getNodesForMatchingSides(square, othersquare, s);
                 if (newNode != null) {
                     addNewNode(newNodes,newNode, square, othersquare,s);
                 }
@@ -198,7 +198,7 @@ public class PuzzleAssembly {
          * @param secondSquareSide the side the second square is trying to match
          */
         @Nullable
-        private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
+        private DeBruijnSquareNode getNodesForMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
             int firstSquareSide = (secondSquareSide + 2) % 4;
             if(firstSquare.sideColor[firstSquareSide]!=secondSquare.sideColor[secondSquareSide]){
                 return null;
@@ -210,7 +210,7 @@ public class PuzzleAssembly {
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
             }
             //top side and bottom side are even
-            boolean horizontal = (secondSquareSide & 1) == 0;
+            boolean horizontal = secondSquare.sideIsHorizontal(secondSquareSide);
             boolean differentHorizontalLocation = firstSquare.horizontalLocation != secondSquare.horizontalLocation;
             boolean differentVerticalLocation = firstSquare.verticalLocation != secondSquare.verticalLocation;
             if(secondSquare.sideColor[secondSquareSide]==0){
@@ -226,19 +226,10 @@ public class PuzzleAssembly {
         }
 
         @Nullable
-        private DeBruijnSquareNode matchBlackSide(Square firstSquare,
-                                                  Square secondSquare,
-                                                  int firstSquareSide,
-                                                  int secondSquareSide,
-                                                  boolean horizontal){
-            if(secondSquare.isCornerSide(secondSquareSide)){
-                return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
-            }
-            int firstSquareLocRef = horizontal?firstSquare.horizontalLocation:firstSquare.verticalLocation;
-            int secondSquareLocRef = horizontal?secondSquare.horizontalLocation:secondSquare.verticalLocation;
-            //if they are opposite or the same they'll both be even
-            boolean oppositeOrSameEnd = (((firstSquareLocRef | secondSquareLocRef) & 1) == 0);
-            return oppositeOrSameEnd ? null: new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
+        private DeBruijnSquareNode matchBlackSide(Square firstSquare, Square secondSquare, int firstSquareSide,
+                                                  int secondSquareSide, boolean horizontal){
+
+            return firstSquare.isOppositeOrSameEnd(secondSquare, horizontal) ? null: new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
          }
 
 
@@ -251,14 +242,14 @@ public class PuzzleAssembly {
          */
         @Nullable
         private DeBruijnSquareNode addNodesToCornerSide(int secondSquareSide, Square firstSquare, Square secondSquare){
-            //top = 0, left = 1
-            if(secondSquareSide < Square.Sides.BOTTOM){
+
+            if(secondSquare.sideIsTopOrLeft(secondSquareSide)){
                 if(!topLeftNodeExists) {
                     topLeftNodeExists=true;
                     return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.TOP, secondSquare, Square.Sides.LEFT);
                 }
                 return null;
-            } else { //bottom = 2, right = 3
+            } else {
                 if(!bottomRightNodeExists) {
                     bottomRightNodeExists=true;
                     return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.BOTTOM, secondSquare, Square.Sides.RIGHT);
@@ -570,6 +561,7 @@ public class PuzzleAssembly {
             }
         }
 
+
         @Override
         public String toString() {
             return "(" + topColor + ", " + leftColor + ", " + bottomColor + ", " + rightColor + ")";
@@ -577,6 +569,22 @@ public class PuzzleAssembly {
 
         public int getIndex() {
             return index;
+        }
+
+        public boolean isOppositeOrSameEnd(Square secondSquare, boolean horizontal){
+            int firstSquareLocRef = horizontal?this.horizontalLocation:this.verticalLocation;
+            int secondSquareLocRef = horizontal?secondSquare.horizontalLocation:secondSquare.verticalLocation;
+            //if they are opposite or the same they'll both be even
+            return ((firstSquareLocRef | secondSquareLocRef) & 1) == 0;
+
+        }
+
+        public boolean sideIsTopOrLeft(int sideNumber){
+            return sideNumber < Square.Sides.BOTTOM;
+        }
+
+        public boolean sideIsHorizontal(int sideNumber){
+            return (sideNumber & 1) == 0;
         }
 
         public boolean isCornerSide(int s){
