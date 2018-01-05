@@ -199,18 +199,24 @@ public class PuzzleAssembly {
          */
         private DeBruijnSquareNode addNodeToMatchingSides(Square firstSquare, Square secondSquare, int secondSquareSide){
             int firstSquareSide = (secondSquareSide + 2) % 4;
+            if(firstSquare.isCornerSide(firstSquareSide)){
+                return null;
+            }
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
             }
+            //top side and bottom side are even
+            boolean horizontal = (secondSquareSide & 1) == 0;
+            boolean differentHorizontalLocation = firstSquare.horizontalLocation != secondSquare.horizontalLocation;
+            boolean differentVerticalLocation = firstSquare.verticalLocation != secondSquare.verticalLocation;
             //TODO: fix the black edges. A black edge can connect to any black edgeo of matching side unless they have the same vertical position or it's a corner edge.
 
             //I know I could do this with one huge conditional but it would just be confusing and
             //it will all compile to the same thing anyway
-            if((secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.BOTTOM) &&
-                    firstSquare.horizontalLocation != secondSquare.horizontalLocation){
+            if(horizontal && differentHorizontalLocation){
                 return null;
-            } else if ((secondSquareSide == Square.Sides.LEFT || secondSquareSide == Square.Sides.RIGHT) &&
-                    firstSquare.verticalLocation != secondSquare.verticalLocation){
+            }
+            if (!horizontal && differentVerticalLocation){
                 return null;
             }
             if(firstSquare.sideColor[firstSquareSide]==secondSquare.sideColor[secondSquareSide]){
@@ -219,10 +225,32 @@ public class PuzzleAssembly {
             return null;
         }
 
-        private DeBruijnSquareNode matchBlackEdges(){
-            //TODO: match all the black edges, including the corners
-            return null;
-        }
+        @Nullable
+        private DeBruijnSquareNode matchBlackSide(Square firstSquare,
+                                                  Square secondSquare,
+                                                  int secondSquareSide,
+                                                  int firstSquareSide,
+                                                  boolean horizontal){
+            if(secondSquare.isCornerSide(secondSquareSide)){
+                return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
+            }
+            //TODO: move oppositeOrSameEnd here
+            if(horizontal){
+                //if they're opposite ends or the same end they'll both be even
+                boolean oppositeOrSameEnd = (((firstSquare.horizontalLocation | secondSquare.horizontalLocation) & 1) == 0);
+                if(oppositeOrSameEnd) {
+                    return null;
+                }
+            }
+            if (!horizontal){
+                //if they're opposite ends or same end they'll both be even
+                boolean oppositeOrSameEnd = (((firstSquare.verticalLocation | secondSquare.verticalLocation) & 1) == 0);
+                if(oppositeOrSameEnd) {
+                    return null;
+                }
+            }
+            return new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
+         }
 
 
         /**
@@ -234,19 +262,18 @@ public class PuzzleAssembly {
          */
         @Nullable
         private DeBruijnSquareNode addNodesToCornerSide(int secondSquareSide, Square firstSquare, Square secondSquare){
-            if(secondSquareSide == Square.Sides.TOP || secondSquareSide == Square.Sides.LEFT){
+            //top = 0, left = 1
+            if(secondSquareSide < Square.Sides.BOTTOM){
                 if(!topLeftNodeExists) {
                     topLeftNodeExists=true;
                     return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.TOP, secondSquare, Square.Sides.LEFT);
                 }
                 return null;
-            } else if (secondSquareSide == Square.Sides.BOTTOM || secondSquareSide == Square.Sides.RIGHT){
+            } else { //bottom = 2, right = 3
                 if(!bottomRightNodeExists) {
                     bottomRightNodeExists=true;
                     return new DeBruijnSquareNode(nodeCount, 0, secondSquare, Square.Sides.BOTTOM, secondSquare, Square.Sides.RIGHT);
                 }
-                return null;
-            } else {
                 return null;
             }
 
