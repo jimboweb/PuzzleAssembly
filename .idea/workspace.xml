@@ -20,8 +20,8 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="216" column="108" lean-forward="false" selection-start-line="216" selection-start-column="108" selection-end-line="216" selection-end-column="108" />
+            <state relative-caret-position="386">
+              <caret line="238" column="67" lean-forward="false" selection-start-line="238" selection-start-column="67" selection-end-line="238" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />
@@ -321,7 +321,7 @@
       <workItem from="1514927344859" duration="589000" />
       <workItem from="1514927938512" duration="969000" />
       <workItem from="1515093635241" duration="5522000" />
-      <workItem from="1515158710876" duration="4158000" />
+      <workItem from="1515158710876" duration="4650000" />
     </task>
     <servers />
   </component>
@@ -358,7 +358,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61253000" />
+    <option name="totallyTimeSpent" value="61745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="43" width="1375" height="837" extended-state="0" />
@@ -900,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="216" column="108" lean-forward="false" selection-start-line="216" selection-start-column="108" selection-end-line="216" selection-end-column="108" />
+        <state relative-caret-position="386">
+          <caret line="238" column="67" lean-forward="false" selection-start-line="238" selection-start-column="67" selection-end-line="238" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addNewNode#0;class#DeBruinSquareGraph#0;class#PuzzleAssembly#0" expanded="false" />

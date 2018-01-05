@@ -234,22 +234,11 @@ public class PuzzleAssembly {
             if(secondSquare.isCornerSide(secondSquareSide)){
                 return addNodesToCornerSide(secondSquareSide, firstSquare,secondSquare);
             }
-            //TODO: move oppositeOrSameEnd here
-            if(horizontal){
-                //if they're opposite ends or the same end they'll both be even
-                boolean oppositeOrSameEnd = (((firstSquare.horizontalLocation | secondSquare.horizontalLocation) & 1) == 0);
-                if(oppositeOrSameEnd) {
-                    return null;
-                }
-            }
-            if (!horizontal){
-                //if they're opposite ends or same end they'll both be even
-                boolean oppositeOrSameEnd = (((firstSquare.verticalLocation | secondSquare.verticalLocation) & 1) == 0);
-                if(oppositeOrSameEnd) {
-                    return null;
-                }
-            }
-            return new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
+            int firstSquareLocRef = horizontal?firstSquare.horizontalLocation:firstSquare.verticalLocation;
+            int secondSquareLocRef = horizontal?secondSquare.horizontalLocation:secondSquare.verticalLocation;
+            //if they are opposite or the same they'll both be even
+            boolean oppositeOrSameEnd = (((firstSquareLocRef | secondSquareLocRef) & 1) == 0);
+            return oppositeOrSameEnd ? null: new DeBruijnSquareNode(nodeCount,secondSquare.sideColor[secondSquareSide], firstSquare,firstSquareSide,secondSquare,secondSquareSide);
          }
 
 
