@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="374" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="327" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="180" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="376" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="329" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="182" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" line="861" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94032d40-651b-41bc-9a36-00713c7dc138" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" afterPath="$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,10 +26,11 @@
       <file leaf-file-name="PuzzleAssembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-174">
-              <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+            <state relative-caret-position="682">
+              <caret line="502" column="0" lean-forward="false" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -55,13 +56,13 @@
                 <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-                <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-                <element signature="e#18179#18180#0" expanded="true" />
-                <element signature="e#18220#18221#0" expanded="true" />
-                <element signature="e#18253#18254#0" expanded="true" />
-                <element signature="e#18291#18292#0" expanded="true" />
+                <element signature="e#18315#18316#0" expanded="true" />
+                <element signature="e#18356#18357#0" expanded="true" />
+                <element signature="e#18389#18390#0" expanded="true" />
+                <element signature="e#18427#18428#0" expanded="true" />
                 <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -75,6 +76,11 @@
                 <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
                 <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+                <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+                <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+                <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+                <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+                <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -357,7 +363,7 @@
       <workItem from="1515187160205" duration="1069000" />
       <workItem from="1520285427178" duration="314000" />
       <workItem from="1520468685812" duration="4418000" />
-      <workItem from="1520474549528" duration="1231000" />
+      <workItem from="1520474549528" duration="2355000" />
     </task>
     <servers />
   </component>
@@ -394,7 +400,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69869000" />
+    <option name="totallyTimeSpent" value="70993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="23" width="1375" height="837" extended-state="0" />
@@ -440,7 +446,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java</url>
-          <line>29</line>
+          <line>31</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
@@ -459,6 +465,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -484,13 +491,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -504,6 +511,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -524,6 +536,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -549,13 +562,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -569,6 +582,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -589,6 +607,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -614,13 +633,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -634,6 +653,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -654,6 +678,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -679,13 +704,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -699,6 +724,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -719,6 +749,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -744,13 +775,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -764,6 +795,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,6 +820,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -809,13 +846,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -829,6 +866,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -849,6 +891,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -874,13 +917,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -894,6 +937,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -914,6 +962,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -939,13 +988,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -959,6 +1008,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -979,6 +1033,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1004,13 +1059,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1024,6 +1079,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1044,6 +1104,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1069,13 +1130,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1089,6 +1150,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1109,6 +1175,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1134,13 +1201,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1154,6 +1221,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1174,6 +1246,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1199,13 +1272,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1219,6 +1292,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,6 +1317,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1264,13 +1343,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1284,6 +1363,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1304,6 +1388,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1329,13 +1414,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1349,6 +1434,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1424,10 +1514,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jimboweb/puzzleassembly/PuzzleAssembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+        <state relative-caret-position="682">
+          <caret line="502" column="0" lean-forward="false" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#AssemblePuzzle#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeHierholzerInput#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#makeSquareList#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1453,13 +1544,13 @@
             <element signature="class#DeBruijnGraph#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphNode#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="docComment;class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#DeBruijnGraphEdge#0;class#PuzzleAssembly#0" expanded="false" />
-            <element signature="e#18179#18180#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18253#18254#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
+            <element signature="e#18315#18316#0" expanded="true" />
+            <element signature="e#18356#18357#0" expanded="true" />
+            <element signature="e#18389#18390#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
             <element signature="class#Square#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="method#Square#0;class#Square#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="class#FastScanner#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="docComment;class#Inputter#0;class#PuzzleAssembly#0" expanded="false" />
@@ -1473,6 +1564,11 @@
             <element signature="class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#run#0;class#PuzzleThread#0;class#PuzzleAssembly#0" expanded="false" />
             <element signature="method#main#0;class#PuzzleAssembly#0" expanded="false" />
+            <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="docComment;method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#isGraphEven#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
