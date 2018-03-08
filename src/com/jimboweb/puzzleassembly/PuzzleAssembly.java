@@ -9,7 +9,7 @@ import java.util.*;
 
 public class PuzzleAssembly {
 
-    private final int numberOfInputs = 25;
+    private final int numberOfInputs = 9;
 
     /**
      * general method to solve the problem
@@ -26,11 +26,26 @@ public class PuzzleAssembly {
         colorToInt = makeColorToIntMap(brokenUpInputs);
         List<Square> squares = makeSquareList(colorToInt,brokenUpInputs);
         DeBruinSquareGraph gr = new DeBruinSquareGraph(squares);
+        Deque<Integer>[] hierholzerInput = makeHierholzerInput(gr);
         outputter.outputLine("Nothing to show yet");
     }
 
+    private Deque<Integer>[] makeHierholzerInput(DeBruinSquareGraph graph){
+        int arraySize = graph.nodeCount;
+        Deque<Integer>[] rtrn = new ArrayDeque[arraySize];
+        for(int i=0;i<rtrn.length;i++){
+            rtrn[i] = new ArrayDeque<>();
+        }
+        for(DeBruijnSquareEdge e: graph.edges){
+            Integer from = e.getStarttNode().getIndex();
+            Integer to = e.getEndNode().getIndex();
+            rtrn[from].push(to);
+        }
+        return rtrn;
+    }
+
     /**
-     * creates the Square objects - TESTED AND WORKS
+     * creates the Square objects
      * @param colorToInt a map matching each color to an integer
      * @param brokenUpInputs list of list of colors
      * @return List of square objects
@@ -301,6 +316,7 @@ public class PuzzleAssembly {
         }
     }
 
+    // TODO: 3/7/18 put in node index then we won't actually need the node objects at all. also a map of nodes to squares.
     /**
      * Square version of DeBruijnGraphEdge
      */
@@ -492,6 +508,13 @@ public class PuzzleAssembly {
             this.index=index;
         }
 
+        public N getStarttNode() {
+            return starttNode;
+        }
+
+        public N getEndNode() {
+            return endNode;
+        }
 
         public List<N> getNodes() {
             List<N> nodes = new ArrayList<>();
